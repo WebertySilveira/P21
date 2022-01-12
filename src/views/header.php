@@ -1,3 +1,4 @@
+<?php $controller = new \Src\Core\Controller(); ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -12,15 +13,18 @@
     <header class="p-3 bg-dark text-white">
         <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="<?php echo(__DIR__ . '/index.php'); ?>" class="nav-link px-2 text-secondary">Home</a></li>
+                <li><a href="<?php echo('/p21-teste'); ?>" class="nav-link px-2 text-secondary">Home</a></li>
             </ul>
-
-            <div class="text-end">
-                <a href="#" type="button" class="btn btn-outline-light me-2">Adicionar Torcedor</a>
-                <a href="#" type="button" class="btn btn-warning">Gerar Planilhar</a>
-            </div>
+            <form method="get">
+                <button name="addFan" value="1" class="btn btn-outline-light me-2">Adicionar Torcedor</button>
+            </form>
+            <form method="get">
+                <button name="importXML" value="addFan" class="btn btn-warning me-2">Importar XML</button>
+            </form>
+            <form method="get">
+                <button name="addSheet" value="addFan" class="btn btn-success me-2">Exportar Excell</button>
+            </form>
         </div>
     </div>
   </header>

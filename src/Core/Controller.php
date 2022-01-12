@@ -1,7 +1,6 @@
 <?php 
 
 namespace Src\Core;
-use Src\Core\Model;
 
 class Controller
 {
@@ -12,7 +11,13 @@ class Controller
 
     public function read()
     {
-        $fans = new Model();
-        return $fans->Read();
+        $list = new Model();
+        return $list->listAll();
+    }
+
+    public function create($nome, $documento, $cep, $endereco, $bairro, $cidade, $uf, $telefone, $email, $ativo)
+    {
+        $create = new Model();
+        $create->save($nome, $documento, $cep, $endereco, $bairro, $cidade, $uf, $telefone, $email, $ativo);
     }
 }
