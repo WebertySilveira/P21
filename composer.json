@@ -1,0 +1,15 @@
+{
+    "name": "weberty/p21-teste",
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "WebertySilveira",
+            "email": "weberty.silveira.sousa@gmail.com"
+        }
+    ],
+    "require": {}
+}
