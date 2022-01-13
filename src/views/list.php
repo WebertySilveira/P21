@@ -1,4 +1,7 @@
-<?php $fans = $controller->read(); ?>
+<?php 
+$controller = new \Src\Core\Controller();
+$fans = $controller->read(); 
+?>
 
     <table class="table table-dark table-striped">
     <thead>
@@ -28,10 +31,7 @@
                 <td><?= $fa['email']; ?></td>
                 <td><?= $fa['ativo']; ?></td>
                 <td>
-                    <form method="post" action="" onsubmit="return confirm('Tem certeza que desaja remover?')">
-                        <a class="btn btn-warning" title="Editar"> 
-                            <i class="fas fa-edit"></i>
-                        </a>
+                    <form method="POST" action="" onsubmit="return confirm('Tem certeza que desaja remover?')">
                         <a class="btn btn-danger" title="Remover">
                             <i class="fas fa-trash-alt"></i>
                         </a>

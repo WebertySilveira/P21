@@ -1,4 +1,8 @@
-<form action="" method="POST">
+<?php 
+$controller = new \Src\Core\Controller();
+?>
+
+<form method="POST">
   <div class="row my-3">
     <div class="col">
       <input type="text" name="nome" class="form-control" placeholder="Nome" required>
@@ -45,7 +49,7 @@
 </form>
 
 <?php 
-if(!empty($_POSt)){
+if(!empty($_POST)){
   $nome = $_POST['nome'];
   $documento = $_POST['documento']; 
   $cep = $_POST['cep']; 
@@ -57,6 +61,6 @@ if(!empty($_POSt)){
   $email = $_POST['email'];
   $ativo = $_POST['ativo'];
 
-  $fans = $controller->create($nome, $documento, $cep, $endereco, $bairro, $cidade, $uf, $telefone, $email, $ativo); 
+  $controller->create($nome, $documento, $cep, $endereco, $bairro, $cidade, $uf, $telefone, $email, $ativo); 
 }
 ?>
