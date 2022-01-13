@@ -9,10 +9,10 @@ class Controller
         require __DIR__ . '/../Views/index.php';
     }
 
-    public function read()
+    public function read($id = false)
     {
         $list = new Model();
-        return $list->listAll();
+        return $list->list($id);
     }
 
     public function create($nome, $documento, $cep, $endereco, $bairro, $cidade, $uf, $telefone, $email, $ativo)
@@ -27,6 +27,15 @@ class Controller
             $delete = new Model();
             $delete->remove($id);
         }
+        unset($_GET);
+        $this->index();
+    }
+
+    public function update($id, $nome, $documento, $cep, $endereco, $bairro, $cidade, $uf, $telefone, $email, $ativo)
+    {
+        $update = new Model();
+        $update->edit($id, $nome, $documento, $cep, $endereco, $bairro, $cidade, $uf, $telefone, $email, $ativo);
+        
         unset($_GET);
         $this->index();
     }
@@ -51,5 +60,22 @@ class Controller
             }
         }
         $this->index();
+    }
+
+    public function generateCSV()
+    {
+ 
+        $read = new Model();
+        $read = $read->list();
+
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename=clientes.csv');
+        $output = fopen('php://output', 'w');
+        ob_end_clean();
+        fputcsv($output, array('ID', 'NOME', 'DOCUMENTO', 'CEP', 'ENDEREÇO', 'BAIRRO', 'CIDADE', 'UF', 'TELEFONE', 'EMAIL', 'ATIVO'));
+
+        foreach ($read as $row) {
+            fputcsv($output, $row, ',');
+        }
     }
 }

@@ -1,9 +1,6 @@
-<?php
-$controller = new \Src\Core\Controller();
-include_once "header.php"; 
-?>
+<?php include_once "header.php"; ?>
 
-<div class="container py-3 my-4">
+<div class="container py-2">
     <?php
     if(empty($_GET)){
         require_once 'list.php';
@@ -15,10 +12,13 @@ include_once "header.php";
         require_once 'importXML.php';
     }else if(!empty($_GET['addSheet'])){
         unset($_GET);
-        require_once 'generateSheet.php';
+        $controller->generateCSV();
     }else if(!empty($_GET['remove'])){
         $controller->delete($_GET['remove']);
+    }else if(!empty($_GET['edit'])){
+        require_once 'edit.php';
     }
+
     ?>
 </div>
 

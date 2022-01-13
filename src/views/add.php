@@ -1,14 +1,10 @@
-<?php 
-$controller = new \Src\Core\Controller();
-?>
-
 <form method="POST">
   <div class="row my-3">
     <div class="col">
       <input type="text" name="nome" class="form-control" placeholder="Nome" required>
     </div>
     <div class="col">
-      <input type="text" name="documento" class="form-control" placeholder="Documento" required>
+      <input type="number" name="documento" class="form-control" placeholder="Documento" required>
     </div>
   </div>
 
@@ -29,7 +25,7 @@ $controller = new \Src\Core\Controller();
       <input type="text" name="cep" class="form-control" placeholder="CEP" required>
     </div>
     <div class="col">
-      <input type="text" name="uf" class="form-control" placeholder="UF" required>
+      <input type="text" name="uf" class="form-control" placeholder="UF" maxlength="2" required>
     </div>
   </div>
 
@@ -41,10 +37,12 @@ $controller = new \Src\Core\Controller();
       <input type="text" name="telefone" class="form-control" placeholder="Telefone">
     </div>
     <div class="col">
-      <input type="text" name="ativo" class="form-control" placeholder="Ativo">
+      <select name="ativo" class="form-control" placeholder="Ativo">
+        <option value="true">ATIVO</option>
+        <option value="false">INATIVO</option>
+      </select>
     </div>
   </div>
-
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 

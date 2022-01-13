@@ -17,13 +17,13 @@
                 <li><a href="<?php echo('/p21-teste'); ?>" class="nav-link px-2 text-secondary">Home</a></li>
             </ul>
             <form method="get">
-                <button name="addFan" value="1" class="btn btn-outline-light me-2">Adicionar Torcedor</button>
+                <button name="addFan" value="addFan" class="btn btn-outline-light me-2">Adicionar Torcedor</button>
             </form>
             <form method="get">
-                <button name="importXML" value="addFan" class="btn btn-warning me-2">Importar XML</button>
+                <button name="importXML" value="importXML" class="btn btn-warning me-2">Importar XML</button>
             </form>
             <form method="get">
-                <button name="addSheet" value="addFan" class="btn btn-success me-2">Exportar Excell</button>
+                <button name="addSheet" value="addSheet" class="btn btn-success me-2">Exportar Excell</button>
             </form>
         </div>
     </div>

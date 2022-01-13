@@ -32,9 +32,18 @@ $fans = $controller->read();
                 <td><?= $fa['ativo']; ?></td>
                 <td>
                     <form method="GET" onsubmit="return confirm('Tem certeza que desaja remover?')">
-                        <button name="remove" value="<?php echo $fa['id']; ?>" class="btn btn-danger" title="Remover">
-                            Remover
-                        </button>
+                        <div class="col my-1">
+                            <button name="remove" value="<?php echo $fa['id']; ?>" class="btn btn-danger" title="Remover">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <form method="GET">
+                        <div class="col my-1">
+                            <button name="edit" value="<?php echo $fa['id']; ?>" class="btn btn-warning" title="Remover">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
                     </form>
                 </td>
             </tr>

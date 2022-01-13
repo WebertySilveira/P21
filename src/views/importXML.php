@@ -14,6 +14,6 @@ if(isset($_FILES["XML"])) {
   $uploadfile = $uploaddir . basename($_FILES['XML']['name']);
   move_uploaded_file($_FILES['XML']['tmp_name'], $uploadfile);
 
-  $fans = $controller->XML($uploadfile); 
-  unset($_POST);
+  $controller->XML($uploadfile); 
+  unset($_GET);
 }
