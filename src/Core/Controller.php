@@ -21,6 +21,16 @@ class Controller
         $create->save($nome, $documento, $cep, $endereco, $bairro, $cidade, $uf, $telefone, $email, $ativo);
     }
 
+    public function delete($id)
+    {
+        if(!empty($id)){
+            $delete = new Model();
+            $delete->remove($id);
+        }
+        unset($_GET);
+        $this->index();
+    }
+
     public function XML($uploadfile)
     {
         if(!empty($uploadfile)){
@@ -38,8 +48,8 @@ class Controller
                 $ativo = $value->attributes()->ativo;
 
                 $this->create($nome, $documento, $cep, $endereco, $bairro, $cidade, $uf, $telefone, $email, $ativo);
-                $this->index();
             }
         }
+        $this->index();
     }
 }

@@ -31,6 +31,20 @@ class Model{
         }
     }
 
+    public function remove($id)
+    {
+        try {
+            $query = Connect::getInstance()->prepare(
+                "DELETE FROM fans WHERE id = :id;"
+            );
+            $query->bindValue(":id", $id, PDO::PARAM_STR);
+            $query->execute();
+        } catch (PDOException $exception) {
+            var_dump($exception);
+            die("Erro ao Deletar!");
+        }
+    }
+
     public function listAll()
     {
         try {

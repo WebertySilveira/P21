@@ -1,4 +1,7 @@
-<?php include_once "header.php"; ?>
+<?php
+$controller = new \Src\Core\Controller();
+include_once "header.php"; 
+?>
 
 <div class="container py-3 my-4">
     <?php
@@ -13,6 +16,8 @@
     }else if(!empty($_GET['addSheet'])){
         unset($_GET);
         require_once 'generateSheet.php';
+    }else if(!empty($_GET['remove'])){
+        $controller->delete($_GET['remove']);
     }
     ?>
 </div>
